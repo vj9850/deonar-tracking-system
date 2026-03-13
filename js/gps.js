@@ -608,7 +608,7 @@ function _buildHistoryTab(id, v) {
     { date:'09 Mar', trip:'TRP-'+(base-2), dest:'Bhiwandi Site 2',  wt:'20.8 MT', time:'06:50–07:55' },
     { date:'09 Mar', trip:'TRP-'+(base-3), dest:'Bhiwandi Site 1',  wt:'17.6 MT', time:'09:10–10:05' },
     { date:'08 Mar', trip:'TRP-'+(base-4), dest:'Ulwe Site',         wt:'22.0 MT', time:'08:30–09:30' },
-    { date:'08 Mar', trip:'TRP-'+(base-5), dest:'Omkar Shet Site',   wt:'18.5 MT', time:'11:00–11:55' },
+    { date:'08 Mar', trip:'TRP-'+(base-5), dest:'Salt Pans',   wt:'18.5 MT', time:'11:00–11:55' },
   ];
   const totalWt = pastTrips.reduce((s,t) => s + parseFloat(t.wt), 0).toFixed(1);
   const rows = pastTrips.map(t => `<tr>

@@ -3,7 +3,7 @@ const tripData = {
   'TRP-001': {title:'TRP-001',id:'TRP-001',status:'<span class="badge b-orange">In Transit</span>',vehicle:'MH-04-CG-7823',driver:'Ramesh Patil',vendor:'Sharma Transport',material:'🟤 Soil',gross:'28.4 MT',tare:'10.0 MT',net:'18.4 MT',wbtime:'08:10 AM',source:'Deonar Dumping Yard',dest:'📍 Bhiwandi Site 1'},
   'TRP-002': {title:'TRP-002',id:'TRP-002',status:'<span class="badge b-green">Delivered</span>',vehicle:'MH-04-BT-1192',driver:'Sunil Jadhav',vendor:'Gupta Logistics',material:'⬜ Stone',gross:'32.1 MT',tare:'10.0 MT',net:'22.1 MT',wbtime:'07:52 AM',source:'Deonar Dumping Yard',dest:'📍 Bhiwandi Site 2'},
   'TRP-003': {title:'TRP-003',id:'TRP-003',status:'<span class="badge b-green">Delivered</span>',vehicle:'MH-04-DK-4455',driver:'Manoj Singh',vendor:'BMC Fleet',material:'🟤 Soil',gross:'29.8 MT',tare:'10.0 MT',net:'19.8 MT',wbtime:'08:30 AM',source:'Deonar Dumping Yard',dest:'📍 Ulwe Site'},
-  'TRP-004': {title:'TRP-004',id:'TRP-004',status:'<span class="badge b-blue">Loading</span>',vehicle:'MH-04-AB-3301',driver:'Prakash Mehta',vendor:'Sharma Transport',material:'🔵 Mixed',gross:'—',tare:'10.0 MT',net:'—',wbtime:'09:00 AM',source:'Deonar Dumping Yard',dest:'📍 Omkar Shet Site'},
+  'TRP-004': {title:'TRP-004',id:'TRP-004',status:'<span class="badge b-blue">Loading</span>',vehicle:'MH-04-AB-3301',driver:'Prakash Mehta',vendor:'Sharma Transport',material:'🔵 Mixed',gross:'—',tare:'10.0 MT',net:'—',wbtime:'09:00 AM',source:'Deonar Dumping Yard',dest:'📍 Salt Pans'},
   'TRP-005': {title:'TRP-005',id:'TRP-005',status:'<span class="badge b-orange">In Transit</span>',vehicle:'MH-04-ZX-9910',driver:'Dinesh Rao',vendor:'Gupta Logistics',material:'⬜ Stone',gross:'30.0 MT',tare:'10.0 MT',net:'20.0 MT',wbtime:'08:55 AM',source:'Deonar Dumping Yard',dest:'📍 Bhiwandi Site 2'},
   'TRP-006': {title:'TRP-006',id:'TRP-006',status:'<span class="badge b-green">Delivered</span>',vehicle:'MH-04-PQ-2277',driver:'Vijay Kumar',vendor:'BMC Fleet',material:'🟤 Soil',gross:'27.5 MT',tare:'10.0 MT',net:'17.5 MT',wbtime:'07:40 AM',source:'Deonar Dumping Yard',dest:'📍 Bhiwandi Site 1'},
 };
@@ -71,7 +71,7 @@ const VEHICLES = {
     material: '⬜ Stone', materialType: 'Stone',
     status: 'transit', statusLabel: 'In Transit',
     badgeClass: 'b-orange',
-    dest: 'Omkar Shet Site',
+    dest: 'Salt Pans',
     destLatLng: [19.0700, 72.8870],
     color: '#1A6DD4',
     progress: 0.45,
@@ -86,8 +86,8 @@ const VEHICLES = {
     timeline: [
       {done:true, title:'Loaded 20.0 MT Stone', time:'08:50 AM'},
       {done:true, title:'Trip auto-created (TRP-005)', time:'08:55 AM'},
-      {active:true, title:'In transit → Omkar Shet Site', time:'08:55 AM'},
-      {pending:true, title:'Deliver at Omkar Shet Site', time:'ETA 09:40 AM'},
+      {active:true, title:'In transit → Salt Pans', time:'08:55 AM'},
+      {pending:true, title:'Deliver at Salt Pans', time:'ETA 09:40 AM'},
     ]
   },
   'MH-04-DK-4455': {
@@ -121,7 +121,7 @@ const VEHICLES = {
     material: '🔵 Mixed', materialType: 'Mixed',
     status: 'loading', statusLabel: 'Loading',
     badgeClass: 'b-blue',
-    dest: 'Omkar Shet Site',
+    dest: 'Salt Pans',
     destLatLng: [19.0700, 72.8870],
     color: '#6B3FA0',
     progress: 0.05,
@@ -137,7 +137,7 @@ const VEHICLES = {
       {done:true, title:'Arrived at Deonar Yard', time:'08:55 AM'},
       {active:true, title:'Loading in progress at yard', time:'09:00 AM'},
       {pending:true, title:'Weighbridge check & trip creation', time:'Pending'},
-      {pending:true, title:'Depart → Omkar Shet Site', time:'Pending'},
+      {pending:true, title:'Depart → Salt Pans', time:'Pending'},
     ]
   },
   'MH-04-PQ-2277': {
@@ -219,7 +219,7 @@ const DESTINATIONS = {
   'Bhiwandi Site 1':  { latLng: [19.2813, 73.0579], icon: '🏗️', type: 'Landfill' },
   'Bhiwandi Site 2':  { latLng: [19.2950, 73.0650], icon: '🏭', type: 'Depot' },
   'Ulwe Site':        { latLng: [18.9893, 73.0493], icon: '🏔️', type: 'Landfill' },
-  'Omkar Shet Site':  { latLng: [19.0760, 72.8777], icon: '🔨', type: 'Construction' }
+  'Salt Pans':  { latLng: [19.0760, 72.8777], icon: '🔨', type: 'Construction' }
 };
 
 // ─── DIESEL DATA ───
