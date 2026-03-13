@@ -1,0 +1,786 @@
+:root {
+  --navy:#0A1628; --navy-mid:#112240; --navy-light:#1B3358;
+  --accent:#1A6DD4; --accent-h:#1558B0; --accent-light:#E8F1FC; --accent-xlight:#F0F6FF;
+  --green:#1A7A4A; --green-light:#E6F4EE;
+  --red:#C0392B; --red-light:#FDECEA;
+  --gold:#C8952A; --gold-light:#FDF3E0;
+  --orange:#D4680A; --orange-light:#FEF0E4;
+  --purple:#6B3FA0; --purple-light:#F0EBF8;
+  --teal:#0E7490; --teal-light:#E0F2F7;
+  --text:#0A1628; --text2:#4A5568; --muted:#718096;
+  --border:#D8E0EA; --border-l:#EDF2F7;
+  --bg:#F4F7FB; --white:#FFFFFF;
+  --sw:242px; --hh:58px;
+  --radius:9px;
+  --shadow:0 1px 4px rgba(10,22,40,0.08), 0 4px 16px rgba(10,22,40,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;height:100vh;overflow:hidden;font-size:13px}
+
+/* ─── SIDEBAR ─── */
+.sb{width:var(--sw);background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;overflow-x:hidden}
+.sb::-webkit-scrollbar{width:3px}.sb::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1)}
+.sb-brand{padding:0 18px;height:var(--hh);display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.07);flex-shrink:0}
+.sb-logo{width:34px;height:34px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;overflow:hidden}
+.sb-logo-img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+.sb-brand-text .t1{font-size:12px;font-weight:700;color:#fff;letter-spacing:0.04em}
+.sb-brand-text .t2{font-size:9px;color:rgba(255,255,255,0.45);letter-spacing:0.07em;text-transform:uppercase}
+.sb-sec{font-size:9px;font-weight:700;color:rgba(255,255,255,0.28);letter-spacing:0.14em;text-transform:uppercase;padding:18px 18px 5px}
+.ni{display:flex;align-items:center;gap:9px;padding:9px 18px;color:rgba(255,255,255,0.55);font-size:12.5px;font-weight:500;cursor:pointer;transition:all .15s;border-left:3px solid transparent;position:relative;user-select:none}
+.ni:hover{background:rgba(255,255,255,0.05);color:#fff}
+.ni.active{background:rgba(26,109,212,0.2);color:#fff;border-left-color:var(--accent)}
+.ni-icon{font-size:14px;width:18px;text-align:center;flex-shrink:0}
+.ni-badge{margin-left:auto;background:var(--accent);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px}
+.ni-dot{width:7px;height:7px;border-radius:50%;background:var(--red);position:absolute;top:9px;right:16px}
+.sb-foot{margin-top:auto;padding:14px 18px;border-top:1px solid rgba(255,255,255,0.07);flex-shrink:0}
+.sb-user{display:flex;align-items:center;gap:9px}
+.sb-avatar{width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;flex-shrink:0}
+.sb-uname{font-size:12px;font-weight:600;color:#fff}
+.sb-urole{font-size:10px;color:rgba(255,255,255,0.4)}
+
+/* ─── MAIN ─── */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.topbar{height:var(--hh);background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:12px;flex-shrink:0;box-shadow:0 1px 0 var(--border)}
+.tb-title{font-size:15px;font-weight:700;color:var(--text)}
+.tb-sub{font-size:11px;color:var(--muted);margin-left:2px}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tb-date{font-size:11px;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+.content{flex:1;overflow-y:auto;padding:20px 24px}
+.content::-webkit-scrollbar{width:5px}.content::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ─── BUTTONS ─── */
+.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .15s;text-decoration:none}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-h);transform:translateY(-1px)}
+.btn-success{background:var(--green);color:#fff}.btn-success:hover{background:#156040}
+.btn-danger{background:var(--red);color:#fff}.btn-danger:hover{background:#a93226}
+.btn-outline{background:#fff;color:var(--text2);border:1px solid var(--border)}.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--muted);border:none}.btn-ghost:hover{color:var(--text);background:var(--bg)}
+.btn-sm{padding:5px 10px;font-size:11px}
+.btn-xs{padding:3px 8px;font-size:10px}
+.btn-icon{padding:6px;border-radius:6px;background:#fff;border:1px solid var(--border);cursor:pointer;font-size:14px;transition:all .15s}.btn-icon:hover{border-color:var(--accent);background:var(--accent-light)}
+
+/* ─── PAGES ─── */
+.page{display:none;animation:fadeIn .2s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── CARDS ─── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.card-header{padding:14px 18px;border-bottom:1px solid var(--border-l);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card-title{font-size:13px;font-weight:700;color:var(--text)}
+.card-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.card-body{padding:18px}
+.card-footer{padding:11px 18px;border-top:1px solid var(--border-l);background:var(--bg);display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted)}
+
+/* ─── STAT CARDS ─── */
+.stats-row{display:grid;gap:14px;margin-bottom:18px}
+.stats-4{grid-template-columns:repeat(4,1fr)}
+.stats-3{grid-template-columns:repeat(3,1fr)}
+.stats-5{grid-template-columns:repeat(5,1fr)}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.stat::after{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.stat.blue::after{background:var(--accent)}.stat.green::after{background:var(--green)}
+.stat.gold::after{background:var(--gold)}.stat.red::after{background:var(--red)}
+.stat.purple::after{background:var(--purple)}.stat.teal::after{background:var(--teal)}
+.stat.orange::after{background:var(--orange)}
+.stat-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px}
+.stat-val{font-size:26px;font-weight:700;color:var(--text);font-family:'IBM Plex Mono',monospace;line-height:1}
+.stat-sub{font-size:11px;color:var(--muted);margin-top:4px}
+.stat-change{font-size:10px;font-weight:700;margin-top:4px}
+.stat-change.up{color:var(--green)}.stat-change.down{color:var(--red)}
+.stat-ico{position:absolute;top:14px;right:14px;font-size:22px;opacity:0.12}
+
+/* ─── GRIDS ─── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:18px}
+.g32{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:18px}
+.g23{display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-bottom:18px}
+.mb16{margin-bottom:16px}.mb0{margin-bottom:0}
+
+/* ─── TABLE ─── */
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{background:var(--bg);font-weight:700;color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:0.07em;padding:9px 13px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+tbody td{padding:11px 13px;border-bottom:1px solid var(--border-l);color:var(--text);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--accent-xlight)}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:11px}
+
+/* ─── BADGES ─── */
+.badge{display:inline-flex;align-items:center;gap:3px;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;white-space:nowrap}
+.badge::before{content:'●';font-size:6px}
+.b-green{background:var(--green-light);color:var(--green)}
+.b-blue{background:var(--accent-light);color:var(--accent)}
+.b-gold{background:var(--gold-light);color:var(--gold)}
+.b-red{background:var(--red-light);color:var(--red)}
+.b-orange{background:var(--orange-light);color:var(--orange)}
+.b-purple{background:var(--purple-light);color:var(--purple)}
+.b-teal{background:var(--teal-light);color:var(--teal)}
+.b-plain{background:var(--border-l);color:var(--muted)}
+.badge.no-dot::before{display:none}
+
+/* ─── FORMS ─── */
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg label{font-size:10px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.07em}
+.fg input,.fg select,.fg textarea{padding:8px 11px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;color:var(--text);background:var(--white);transition:border-color .15s;outline:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,109,212,0.1)}
+.fg input[readonly],.fg input:read-only{background:var(--bg);cursor:default}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fgrid.cols3{grid-template-columns:1fr 1fr 1fr}
+.fgrid .full{grid-column:1/-1}
+.filter-bar{display:flex;gap:8px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--border-l);flex-wrap:wrap}
+.filter-bar input,.filter-bar select{padding:6px 10px;font-size:12px;border:1px solid var(--border);border-radius:5px;font-family:inherit;color:var(--text);background:var(--white);outline:none}
+.filter-bar input:focus,.filter-bar select:focus{border-color:var(--accent)}
+.search-input{flex:1;min-width:140px}
+
+/* ─── PROGRESS ─── */
+.prog{background:var(--border-l);border-radius:4px;height:6px;overflow:hidden;margin-top:6px}
+.prog-fill{height:100%;border-radius:4px;background:var(--accent);transition:width .4s}
+.prog-fill.g{background:var(--green)}.prog-fill.gold{background:var(--gold)}.prog-fill.r{background:var(--red)}.prog-fill.o{background:var(--orange)}
+
+/* ─── TIMELINE ─── */
+.timeline{display:flex;flex-direction:column}
+.tl-item{display:flex;gap:12px;padding-bottom:16px;position:relative}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:12px;top:24px;width:2px;bottom:0;background:var(--border-l)}
+.tl-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;position:relative;z-index:1}
+.tl-dot.done{background:var(--green);color:#fff}
+.tl-dot.active{background:var(--accent);color:#fff;box-shadow:0 0 0 4px rgba(26,109,212,0.2)}
+.tl-dot.pending{background:var(--bg);border:2px solid var(--border);color:var(--muted)}
+.tl-dot.error{background:var(--red);color:#fff}
+.tl-title{font-size:12px;font-weight:600;color:var(--text)}
+.tl-time{font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px}
+.tl-note{font-size:11px;color:var(--text2);margin-top:3px}
+
+/* ─── MODAL ─── */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,22,40,0.55);z-index:1000;display:none;align-items:center;justify-content:center;animation:fadeIn .15s}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:12px;box-shadow:0 8px 40px rgba(10,22,40,0.25);width:600px;max-width:95vw;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
+.modal-lg{width:780px}
+.modal-sm{width:420px}
+.modal-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal-title{font-size:14px;font-weight:700}
+.modal-body{padding:20px;overflow-y:auto;flex:1}
+.modal-footer{padding:14px 20px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end;flex-shrink:0}
+.modal-close{background:none;border:none;cursor:pointer;font-size:18px;color:var(--muted);padding:4px;border-radius:4px;line-height:1}.modal-close:hover{color:var(--text);background:var(--bg)}
+
+/* ─── TOAST ─── */
+.toast-container{position:fixed;bottom:20px;right:20px;z-index:2000;display:flex;flex-direction:column;gap:8px}
+.toast{background:var(--navy);color:#fff;padding:12px 16px;border-radius:8px;font-size:12px;font-weight:500;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(10,22,40,0.3);animation:slideUp .3s ease;max-width:340px}
+.toast.success{background:var(--green)}.toast.error{background:var(--red)}.toast.warning{background:var(--orange)}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideOut{to{opacity:0;transform:translateX(20px)}}
+
+/* ─── ALERT BOXES ─── */
+.alert{display:flex;align-items:flex-start;gap:10px;padding:11px 15px;border-radius:7px;font-size:12px;margin-bottom:14px}
+.alert-blue{background:var(--accent-light);color:var(--accent);border:1px solid #C0D9F7}
+.alert-green{background:var(--green-light);color:var(--green);border:1px solid #b2dfcc}
+.alert-gold{background:var(--gold-light);color:var(--gold);border:1px solid #F0DBA8}
+.alert-red{background:var(--red-light);color:var(--red);border:1px solid #f5c6c2}
+.alert-icon{font-size:14px;margin-top:1px;flex-shrink:0}
+
+/* ─── MAP (Google Maps) ─── */
+.map-box{background:#E8EFF6;border-radius:8px;position:relative;overflow:hidden;border:1px solid var(--border)}
+#google-map{width:100%;height:100%;border-radius:8px}
+#google-map *{font-family:'IBM Plex Sans',sans-serif!important}
+/* ─── TRUCK MAP MARKERS ─── */
+.vtruck-wrap{position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;filter:drop-shadow(0 1px 4px rgba(0,0,0,0.32))}
+.vtruck-wrap:hover .vtruck-svg{transform:scale(1.18)}
+.vtruck-svg{transition:transform .15s;display:block}
+.vtruck-label{background:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700;font-family:'IBM Plex Mono',monospace;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.2);margin-top:1px;border:1.5px solid currentColor;line-height:1.3}
+.vtruck-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none}
+.vtruck-ring.pulse{animation:truckPulse 1.4s ease-in-out infinite}
+@keyframes truckPulse{0%,100%{opacity:0.8;transform:translate(-50%,-50%) scale(1)}50%{opacity:0;transform:translate(-50%,-50%) scale(1.8)}}
+.vtruck-selected-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:2px solid #0A1628;pointer-events:none;animation:selectedPulse 2s ease-in-out infinite}
+@keyframes selectedPulse{0%,100%{box-shadow:0 0 0 0 rgba(10,22,40,0.4)}50%{box-shadow:0 0 0 4px rgba(10,22,40,0)}}
+/* Map control buttons */
+.map-ctrl-bar{position:absolute;top:10px;right:10px;z-index:500;display:flex;flex-direction:column;gap:4px}
+.map-ctrl-btn{background:#fff;border:1px solid var(--border);border-radius:5px;padding:5px 8px;font-size:11px;font-weight:600;cursor:pointer;color:var(--text2);display:flex;align-items:center;gap:4px;transition:all .15s;box-shadow:0 1px 4px rgba(0,0,0,0.1)}
+.map-ctrl-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-xlight)}
+.map-ctrl-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* Google Maps InfoWindow overrides */
+.gm-style .gm-style-iw-c{border-radius:8px!important;box-shadow:0 4px 20px rgba(10,22,40,0.18)!important;border:1px solid var(--border)!important;padding:0!important}
+.gm-style .gm-style-iw-d{overflow:hidden!important}
+.gm-style .gm-style-iw-t::after{display:none}
+/* Enlarge InfoWindow close button for touch */
+.gm-style .gm-ui-hover-effect{width:36px!important;height:36px!important;top:2px!important;right:2px!important;opacity:0.8}
+.gm-style .gm-ui-hover-effect>span{width:18px!important;height:18px!important}
+.vp-inner{padding:12px 14px;min-width:200px}
+.vp-head{font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.vp-row{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;border-bottom:1px solid var(--border-l)}
+.vp-row:last-child{border-bottom:none}
+.vp-key{color:var(--muted)}
+.vp-val{font-weight:600;color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:10px}
+/* Route path tooltip */
+.route-label{background:var(--navy);color:#fff;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;font-family:'IBM Plex Mono',monospace;border:none;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
+/* Destination markers */
+.dest-marker{background:var(--navy);color:#fff;padding:4px 8px;border-radius:5px;font-size:9px;font-weight:700;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);border:2px solid rgba(255,255,255,0.2)}
+/* Map status bar */
+.map-status-bar{display:flex;align-items:center;gap:12px;padding:8px 14px;background:var(--navy);border-radius:0 0 8px 8px;font-size:10px;color:rgba(255,255,255,0.6);font-family:'IBM Plex Mono',monospace;flex-wrap:wrap}
+.map-status-item{display:flex;align-items:center;gap:5px}
+.map-status-dot{width:6px;height:6px;border-radius:50%}
+/* Vehicle card selected state */
+#vehicle-list .card.selected{border-left:3px solid var(--accent)!important;background:var(--accent-xlight)}
+
+/* ─── GPS SIDE PANEL ─── */
+.gps-side-panel{width:0;overflow:hidden;transition:width .3s ease;background:var(--white);border-left:1px solid var(--border-l);display:flex;flex-direction:column;flex-shrink:0}
+.gps-side-panel.open{width:320px}
+.gsp-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border-l);background:var(--navy);flex-shrink:0;min-height:44px;gap:8px}
+.gsp-header .badge{font-size:9px;flex-shrink:0}
+.gsp-tabs{display:flex;border-bottom:1px solid var(--border-l);flex-shrink:0;background:var(--bg)}
+.gsp-tab{flex:1;padding:9px 4px;font-size:11px;font-weight:600;background:none;border:none;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;transition:all .15s;font-family:inherit}
+.gsp-tab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--white)}
+.gsp-tab:hover:not(.active){color:var(--text2);background:var(--border-l)}
+.gsp-body{flex:1;overflow-y:auto;overflow-x:hidden;padding:12px;background:var(--white)}
+.gsp-body::-webkit-scrollbar{width:4px}
+.gsp-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+/* Vehicle info rows in side panel */
+.vi-row{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border-l);font-size:11px;gap:8px}
+.vi-row:last-child{border-bottom:none}
+.vi-key{color:var(--muted);font-weight:600;flex-shrink:0;width:88px;min-width:0}
+.vi-val{color:var(--text);text-align:right;font-weight:500;min-width:0;word-break:break-word}
+.vi-val.mono{font-family:'IBM Plex Mono',monospace;font-size:10px}
+
+/* Panel action buttons */
+.gsp-actions{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.gsp-actions .btn{width:100%;justify-content:center;font-size:11px}
+
+/* History table wrapper — always scrollable inside panel */
+.gsp-hist-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -2px}
+.hist-table{width:100%;border-collapse:collapse;font-size:10px}
+.hist-table th{color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:5px 6px;border-bottom:1px solid var(--border-l);text-align:left;white-space:nowrap}
+.hist-table td{padding:6px 6px;border-bottom:1px solid var(--border-l);color:var(--text2);vertical-align:top}
+.hist-table tr:last-child td{border-bottom:none}
+
+/* Route progress inside panel */
+.gsp-route-box{background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px}
+.gsp-route-ends{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:5px;gap:4px}
+.gsp-route-dest{text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:50%}
+.gsp-route-src{white-space:nowrap}
+
+/* History stats strip */
+.gsp-hist-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.gsp-hist-stat{background:var(--bg);border-radius:6px;padding:10px;text-align:center}
+.gsp-hist-stat-val{font-size:18px;font-weight:700;font-family:'IBM Plex Mono',monospace;line-height:1}
+.gsp-hist-stat-label{font-size:9px;color:var(--muted);text-transform:uppercase;font-weight:700;margin-top:3px}
+
+/* Vehicle chip strip on map */
+#vehicle-chip-strip{position:absolute;bottom:0;left:0;right:0;z-index:490;display:flex;gap:6px;padding:8px 10px;overflow-x:auto;background:linear-gradient(to top,rgba(10,22,40,0.85),transparent);scrollbar-width:none}
+#vehicle-chip-strip::-webkit-scrollbar{display:none}
+.vchip{background:rgba(255,255,255,0.92);border-radius:20px;padding:4px 10px;font-size:10px;font-weight:700;font-family:'IBM Plex Mono',monospace;cursor:pointer;white-space:nowrap;border:2px solid transparent;transition:all .15s;display:flex;align-items:center;gap:5px;flex-shrink:0}
+.vchip:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.vchip.selected{outline:2px solid #fff;outline-offset:1px}
+.vchip-dot{width:6px;height:6px;border-radius:50%}
+
+/* History table in panel */
+.hist-table{width:100%;border-collapse:collapse;font-size:10px}
+.hist-table th{color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 6px;border-bottom:1px solid var(--border-l);text-align:left}
+.hist-table td{padding:5px 6px;border-bottom:1px solid var(--border-l);color:var(--text2)}
+.hist-table tr:last-child td{border-bottom:none}
+
+/* ─── GPS PANEL OVERLAY ─── */
+/* Hidden on desktop. On mobile: opacity-transition (GPU-accelerated, no black-flash on iOS) */
+#gps-panel-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background:rgba(10,22,40,0.35);z-index:609;-webkit-tap-highlight-color:transparent}
+
+/* ─── GPS PAGE — BASE (desktop) ─── */
+#page-gps .gps-map-card{overflow:visible;margin-bottom:14px}
+#gps-map-wrapper{position:relative;display:flex;gap:0;overflow:hidden}
+#gps-map-box{flex:1;min-width:0;height:520px;border-radius:0}
+.gps-card-header{flex-wrap:nowrap}
+.gps-header-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;flex-wrap:nowrap}
+/* Minimum 44px touch targets on header action buttons */
+.gps-header-actions .btn{min-height:36px;min-width:36px;touch-action:manipulation}
+.gsp-vehicle-id-text{font-weight:700;font-size:13px;font-family:monospace}
+.gsp-close-btn{font-size:16px}
+.gsp-drag-handle{display:none}
+.gps-vl-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:8px}
+.gps-vl-filters{display:flex;gap:6px;align-items:center}
+.gps-vehicle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.gps-filter-btn{min-width:32px}
+.gps-alert-bar{display:flex;align-items:center}
+.gps-badge-desktop{display:inline-flex}
+/* Prevent 300ms tap delay on all interactive map elements */
+.map-ctrl-btn,.vchip,.gsp-tab,.gsp-drag-handle{touch-action:manipulation}
+
+/* ─── GPS PAGE — TABLET ≤860px ─── */
+@media(max-width:860px){
+  #gps-map-box{height:420px}
+  .gps-side-panel.open{width:300px}
+  .gps-badge-desktop{display:none}
+}
+
+/* ─── GPS PAGE — MOBILE ≤600px ─── */
+@media(max-width:600px){
+
+  /* ── Dim overlay — opacity transition avoids iOS black-compositing bug ── */
+  #gps-panel-overlay{display:block;opacity:0;pointer-events:none;transition:opacity .25s ease}
+  #gps-panel-overlay.open{opacity:1;pointer-events:auto}
+
+  /* ── Map box ── */
+  /* flex:none prevents the flex algorithm from overriding the explicit height;
+     without this, flex:1 (inherited from desktop) makes height "auto-derived"
+     and height:100% on #google-map computes to 0 (CSS spec %-height rule) */
+  #gps-map-box{flex:none;height:62vw;min-height:280px;max-height:380px}
+
+  /* Absolutely-fill the map box — most reliable way to give Google Maps
+     a concrete non-zero height independent of any percentage-height issue */
+  #google-map{position:absolute;top:0;left:0;right:0;bottom:0;height:auto}
+
+  /* Wrapper stacks vertically; drop overflow:hidden so Google Maps
+     InfoWindows & controls are never clipped on mobile */
+  #gps-map-wrapper{flex-direction:column;overflow:visible}
+
+  /* ── Card header ── */
+  .gps-card-header{padding:10px 12px!important;gap:6px}
+  /* Scope font-size override to GPS card only (don't bleed to other cards) */
+  #page-gps .card-title{font-size:12px!important}
+  .gps-map-sub-text{font-size:9px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+  .gps-header-actions{gap:4px}
+
+  /* ── Map layer / control buttons — bigger tap targets ── */
+  .map-ctrl-bar{top:8px;right:8px;gap:4px}
+  .map-ctrl-btn{padding:8px 9px;font-size:14px;min-width:36px;min-height:36px;justify-content:center}
+
+  /* ── Vehicle chip strip ── */
+  #vehicle-chip-strip{
+    bottom:0;
+    padding:10px 10px 12px;
+    gap:6px;
+    overscroll-behavior-x:contain;
+  }
+  .vchip{
+    padding:6px 11px;
+    font-size:11px;
+    min-height:34px; /* comfortable touch target */
+  }
+
+  /* ── Bottom sheet side panel ── */
+  .gps-side-panel{
+    position:fixed!important;
+    bottom:0!important;
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+    height:0!important;
+    border-radius:18px 18px 0 0!important;
+    border-left:none!important;
+    border-top:1px solid var(--border)!important;
+    box-shadow:0 -8px 40px rgba(10,22,40,0.28)!important;
+    z-index:610!important;
+    transition:height .3s cubic-bezier(.4,0,.2,1)!important;
+    overflow:hidden!important;
+    background:var(--white)!important;
+    display:flex!important;
+    flex-direction:column!important;
+    /* extend background behind home-bar on iPhone */
+    padding-bottom:0!important;
+  }
+  .gps-side-panel.open{
+    /* dvh falls back to vh on older browsers */
+    height:80dvh!important;
+    height:80vh!important;
+  }
+
+  /* Drag handle — larger tap area */
+  .gsp-drag-handle{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:12px 0 6px;
+    cursor:pointer;
+    flex-shrink:0;
+    background:var(--white);
+    border-radius:18px 18px 0 0;
+    /* expand invisible touch area */
+    margin-bottom:-4px;
+  }
+  .gsp-handle-bar{width:44px;height:4px;border-radius:2px;background:var(--border)}
+  /* Show close button on mobile — tap to dismiss bottom sheet */
+  .gsp-close-btn{display:flex!important;min-width:44px;min-height:44px;justify-content:center;align-items:center;font-size:18px}
+
+  /* Panel header */
+  .gsp-header{padding:10px 14px;min-height:44px}
+  .gsp-vehicle-id-text{font-size:12px}
+
+  /* Tabs — full-width, easy tap */
+  .gsp-tabs{background:var(--bg)}
+  .gsp-tab{font-size:12px!important;padding:11px 4px!important;font-weight:700;min-height:44px}
+
+  /* Panel body — fill remaining space, scrollable, safe-area aware */
+  .gsp-body{
+    flex:1!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    padding:14px 14px!important;
+    /* push content above iPhone home bar */
+    padding-bottom:max(env(safe-area-inset-bottom), 20px)!important;
+    /* NOTE: -webkit-overflow-scrolling:touch removed — it creates an iOS compositing
+       layer inside position:fixed that makes the background overlay render as opaque black */
+    overscroll-behavior-y:contain;
+    background:var(--white)!important;
+  }
+
+  /* Info rows */
+  .vi-key{width:92px;font-size:11px}
+  .vi-val{font-size:11px}
+  .vi-val.mono{font-size:10px}
+
+  /* Route progress box */
+  .gsp-route-box{padding:10px}
+  .gsp-route-ends{font-size:9px}
+
+  /* Action buttons: full-width, easy tap */
+  .gsp-actions{gap:8px}
+  .gsp-actions .btn{font-size:12px!important;padding:11px 12px!important;min-height:44px}
+
+  /* History stat cards */
+  .gsp-hist-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+  .gsp-hist-stat{background:var(--bg);border-radius:6px;padding:10px;text-align:center}
+  .gsp-hist-stat-val{font-size:18px;font-weight:700;font-family:'IBM Plex Mono',monospace;line-height:1}
+  .gsp-hist-stat-label{font-size:9px;color:var(--muted);text-transform:uppercase;font-weight:700;margin-top:3px}
+
+  /* ── Status bar ── */
+  .map-status-bar{padding:6px 10px;gap:8px;flex-wrap:nowrap;overflow:hidden}
+  .gps-status-coord{display:none}
+  .map-status-item{font-size:9px}
+
+  /* ── Alert banner ── */
+  .gps-alert-bar{padding:8px 10px;gap:6px;font-size:10px}
+  .gps-alert-txt{display:none}
+
+  /* ── Vehicle list section ── */
+  .gps-vl-header{flex-wrap:nowrap;gap:6px}
+  .gps-vl-filters{gap:4px}
+  .gps-filter-btn{padding:4px 8px!important;font-size:10px!important;min-height:34px;touch-action:manipulation}
+
+  /* 2 columns on medium phones */
+  .gps-vehicle-grid{grid-template-columns:1fr 1fr!important;gap:8px}
+  .gps-vehicle-grid .card-body{padding:9px 10px!important}
+  .gps-vehicle-grid .mono{font-size:10px!important}
+
+  /* ── GPS stats row ── */
+  .gps-stats.stats-4{grid-template-columns:repeat(4,1fr)!important;gap:6px!important}
+  .gps-stats .stat{padding:8px 6px!important}
+  .gps-stats .stat-val{font-size:16px!important}
+  .gps-stats .stat-label{font-size:8px!important}
+  .gps-stats .stat-ico{display:none}
+
+  /* ── Toast: lift above bottom nav (58px) + gap ── */
+  .toast-container{bottom:72px!important;right:12px!important}
+  .toast{font-size:11px;padding:10px 12px}
+}
+
+/* ─── GPS PAGE — EXTRA SMALL ≤430px ─── */
+@media(max-width:430px){
+  /* Single-column vehicle grid — cards too narrow at 2-col on small phones */
+  .gps-vehicle-grid{grid-template-columns:1fr!important}
+}
+
+/* ─── GPS PAGE — EXTRA SMALL ≤380px ─── */
+@media(max-width:380px){
+  #gps-map-box{flex:none;height:58vw;min-height:240px}
+  .gps-stats .stat-val{font-size:14px!important}
+  .gps-map-sub-text{max-width:110px}
+  .gsp-tab{font-size:10px!important;padding:8px 2px!important;min-height:40px}
+}
+
+
+
+/* ─── SECTION TITLE ─── */
+.sec-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px;margin-top:2px;display:flex;align-items:center;gap:8px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border-l)}
+
+/* ─── DARK PANEL ─── */
+.dark-panel{background:var(--navy);border-radius:var(--radius);padding:18px 22px}
+.dp-label{font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
+.dp-val{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:700;color:#fff;line-height:1}
+.dp-val.hi{color:#5BC4F5}
+.dp-unit{font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px}
+
+/* ─── CODE BLOCK ─── */
+.code-block{background:var(--navy);border-radius:7px;padding:14px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#a8d8f0;line-height:1.8;overflow-x:auto}
+.code-comment{color:rgba(255,255,255,0.3)}.code-key{color:#90e0ef}.code-str{color:#a8ff78}.code-num{color:#ffb347}.code-brace{color:#f9c74f}
+
+/* ─── MISC ─── */
+.tag{display:inline-flex;align-items:center;padding:2px 8px;background:var(--accent-light);color:var(--accent);border-radius:4px;font-size:10px;font-weight:600}
+.divider{border:none;border-top:1px solid var(--border-l);margin:14px 0}
+.text-center{text-align:center}.text-right{text-align:right}
+.flex{display:flex;align-items:center}.flex-sb{display:flex;align-items:center;justify-content:space-between}
+.gap8{gap:8px}.gap12{gap:12px}.gap16{gap:16px}
+.fw700{font-weight:700}.color-accent{color:var(--accent)}.color-green{color:var(--green)}.color-red{color:var(--red)}.color-muted{color:var(--muted)}.color-orange{color:var(--orange)}.color-gold{color:var(--gold)}
+.api-tag{background:var(--accent);color:#fff;padding:1px 5px;border-radius:3px;font-size:8px;font-weight:700;letter-spacing:0.04em;vertical-align:middle;margin-left:4px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+@keyframes blink{0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,0.25)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0.1)}}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;animation:blink 2s infinite}
+.ping-dot{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block;animation:pulse 1s infinite}
+
+/* ═══════════════════════════════════════════════
+   MOBILE RESPONSIVE — FULL APP
+   ═══════════════════════════════════════════════ */
+
+/* ── Hamburger & Bottom Nav (always present, shown via media query) ── */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:6px;flex-shrink:0;min-width:36px;min-height:36px}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(10,22,40,0.5);z-index:199}
+.sb-overlay.show{display:block}
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);z-index:200;height:58px;border-top:1px solid rgba(255,255,255,0.1);padding-bottom:env(safe-area-inset-bottom)}
+.bottom-nav-inner{display:flex;align-items:stretch;height:100%}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:rgba(255,255,255,0.5);cursor:pointer;font-size:9px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;transition:all .15s;border:none;background:none;padding:0;position:relative;font-family:inherit;min-width:0}
+.bn-item.active{color:#fff;background:rgba(26,109,212,0.25)}
+.bn-item .bn-icon{font-size:18px;line-height:1}
+.bn-dot{width:6px;height:6px;background:var(--red);border-radius:50%;position:absolute;top:8px;right:calc(50% - 14px)}
+
+/* ── Utility: make tables scroll horizontally ── */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:600px}
+
+/* ─── TABLET / NARROW DESKTOP ≤1024px ─── */
+@media(max-width:1024px){
+  .g32{grid-template-columns:1fr}
+  .g23{grid-template-columns:1fr}
+  .g3{grid-template-columns:1fr 1fr}
+  .stats-5{grid-template-columns:repeat(3,1fr)}
+  .fgrid.cols3{grid-template-columns:1fr 1fr}
+}
+
+/* ─── TABLET ≤860px — sidebar becomes drawer ─── */
+@media(max-width:860px){
+  body{overflow:auto;height:auto;min-height:100vh}
+  .sb{position:fixed;top:0;left:0;bottom:0;z-index:200;transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);width:260px}
+  .sb.open{transform:translateX(0)}
+  .main{width:100%;min-height:100vh}
+  .hamburger{display:flex}
+  .g2{grid-template-columns:1fr}
+  .g32,.g23{grid-template-columns:1fr}
+  .g3{grid-template-columns:1fr 1fr}
+  .stats-4{grid-template-columns:repeat(2,1fr)}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .card-header{flex-wrap:wrap;gap:8px}
+  .modal{max-height:92vh;border-radius:16px 16px 0 0;margin:auto auto 0}
+  .modal-overlay{align-items:flex-end}
+  .modal-lg,.modal-sm{width:100%;max-width:100%}
+  .modal-body{padding:16px}
+  .modal-header,.modal-footer{padding:14px 16px}
+  .content{padding:14px 14px 80px}
+  .topbar{padding:0 12px;gap:8px}
+  /* Weighbridge status bar wraps */
+  #page-weighbridge .dark-panel{padding:12px 14px}
+  /* Reports grid: 2 col */
+  #page-reports .g3{grid-template-columns:1fr 1fr}
+}
+
+/* ─── MOBILE ≤600px — full mobile layout ─── */
+@media(max-width:600px){
+  :root{--hh:52px}
+  body{font-size:12px}
+  .main{height:100dvh;display:flex;flex-direction:column}
+  .content{flex:1;overflow-y:auto;padding:12px 12px 74px;-webkit-overflow-scrolling:touch}
+
+  /* ── Topbar ── */
+  .topbar{padding:0 10px;gap:6px}
+  .tb-title{font-size:13px}
+  #pg-sub{display:none}
+  .tb-hide-sm{display:none!important}
+  .tb-hide-xs{display:none!important}
+  .bottom-nav{display:block}
+
+  /* ── Stats ── */
+  .stats-4{grid-template-columns:repeat(2,1fr);gap:8px}
+  .stats-3{grid-template-columns:repeat(3,1fr);gap:6px}
+  .stats-5{grid-template-columns:repeat(3,1fr);gap:6px}
+  .stat{padding:10px 12px}
+  .stat-val{font-size:20px}
+  .stat-label{font-size:9px}
+  .stat-sub{font-size:9px}
+  .stat-change{font-size:9px}
+  .stat-ico{font-size:16px;top:8px;right:8px}
+
+  /* ── Grids ── */
+  .g2,.g3,.g32,.g23{grid-template-columns:1fr;gap:10px}
+
+  /* ── Cards ── */
+  .card-header{padding:10px 12px}
+  .card-body{padding:12px}
+  .card-footer{flex-direction:column;gap:8px;align-items:flex-start;padding:10px 12px}
+  .card-title{font-size:12px}
+  .card-sub{font-size:10px}
+
+  /* ── Forms ── */
+  .fgrid,.fgrid.cols3{grid-template-columns:1fr;gap:8px}
+  .fgrid .full{grid-column:auto}
+  .filter-bar{padding:8px 10px;gap:6px;flex-wrap:wrap}
+  .filter-bar select,.filter-bar input{font-size:11px;padding:5px 8px;width:100%}
+  .search-input{width:100%;max-width:100%}
+
+  /* ── Tables: horizontal scroll + hide low-priority cols ── */
+  .tw table{min-width:480px}
+  table{font-size:11px}
+  thead th{font-size:9px;padding:6px 8px;white-space:nowrap}
+  tbody td{padding:7px 8px;vertical-align:middle}
+  /* Hide less critical columns on small screens */
+  .col-hide-sm{display:none!important}
+
+  /* ── Typography & misc ── */
+  .mono{font-size:10px}
+  .badge{font-size:9px;padding:2px 5px}
+  .btn{font-size:11px;padding:6px 10px}
+  .btn-sm{font-size:10px;padding:5px 8px}
+  .btn-xs{font-size:9px;padding:2px 6px}
+  .alert{font-size:11px;padding:8px 10px;gap:8px}
+  .sec-title{font-size:11px}
+  .tag{font-size:9px}
+
+  /* ── Dark panels ── */
+  .dark-panel{padding:12px 14px}
+  .dp-val{font-size:18px}
+  .dp-label{font-size:9px}
+  .code-block{font-size:10px;padding:10px 12px;line-height:1.6}
+
+  /* ── Modals ── */
+  .toast-container{bottom:68px;right:8px;left:8px}
+  .toast{max-width:100%}
+  .modal{border-radius:20px 20px 0 0;max-height:88dvh}
+  .modal-body{padding:14px}
+  .modal-header{padding:12px 14px}
+  .modal-title{font-size:13px}
+  .modal-footer{padding:10px 12px;flex-wrap:wrap;gap:6px}
+  .modal-footer .btn{flex:1;justify-content:center;min-width:90px}
+  /* Modal inner grids collapse */
+  .modal-body .g2,.modal-body .g32,.modal-body .g23{grid-template-columns:1fr;gap:10px}
+  .modal-body .fgrid,.modal-body .fgrid.cols3{grid-template-columns:1fr;gap:8px}
+
+  /* ── Dashboard ── */
+  #page-dashboard .g32{grid-template-columns:1fr}
+
+  /* ── Trips page ── */
+  /* Keep Trip ID + vehicle + status + action; hide less critical cols */
+  #trips-table th:nth-child(3),#trips-table td:nth-child(3),  /* Driver */
+  #trips-table th:nth-child(4),#trips-table td:nth-child(4),  /* Vendor */
+  #trips-table th:nth-child(6),#trips-table td:nth-child(6),  /* Gross */
+  #trips-table th:nth-child(7),#trips-table td:nth-child(7),  /* Tare */
+  #trips-table th:nth-child(9),#trips-table td:nth-child(9)   /* Source */
+  {display:none}
+
+  /* ── Weighbridge ── */
+  /* Weighbridge status header stacks */
+  #page-weighbridge > div:first-child{flex-direction:column;align-items:flex-start;gap:10px;padding:12px 14px}
+  #page-weighbridge > div:first-child .flex.gap16{flex-wrap:wrap;gap:10px}
+  /* WB table: hide operator + HTTP cols */
+  #wb-tbody td:nth-child(9),#page-weighbridge thead tr th:nth-child(9),
+  #wb-tbody td:nth-child(11),#page-weighbridge thead tr th:nth-child(11){display:none}
+  /* Weighbridge stats grid: 3 col → 3 col (keep compact) */
+  #page-weighbridge .dark-panel{padding:10px 12px}
+  #page-weighbridge [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:repeat(3,1fr)!important;gap:8px!important}
+
+  /* ── Vehicles ── */
+  /* Show: #, Vehicle No, Type, Status, Actions. Hide rest */
+  #v-tbody td:nth-child(4),#page-vehicles thead th:nth-child(4),  /* Make */
+  #v-tbody td:nth-child(5),#page-vehicles thead th:nth-child(5),  /* Capacity */
+  #v-tbody td:nth-child(6),#page-vehicles thead th:nth-child(6),  /* Tare */
+  #v-tbody td:nth-child(7),#page-vehicles thead th:nth-child(7),  /* GPS ID */
+  #v-tbody td:nth-child(8),#page-vehicles thead th:nth-child(8),  /* Driver */
+  #v-tbody td:nth-child(9),#page-vehicles thead th:nth-child(9),  /* Vendor */
+  #v-tbody td:nth-child(10),#page-vehicles thead th:nth-child(10),/* RC */
+  #v-tbody td:nth-child(11),#page-vehicles thead th:nth-child(11),/* Fitness */
+  #v-tbody td:nth-child(12),#page-vehicles thead th:nth-child(12) /* Insurance */
+  {display:none}
+
+  /* ── Vendors ── */
+  /* Hide email + contract cols */
+  #page-vendors table th:nth-child(5),#page-vendors table td:nth-child(5),
+  #page-vendors table th:nth-child(7),#page-vendors table td:nth-child(7)
+  {display:none}
+
+  /* ── Drivers ── */
+  /* Show: #, Name, Mobile, Status, Actions. Hide licence cols */
+  #page-drivers table th:nth-child(4),#page-drivers table td:nth-child(4),/* Licence No */
+  #page-drivers table th:nth-child(5),#page-drivers table td:nth-child(5),/* Expiry */
+  #page-drivers table th:nth-child(7),#page-drivers table td:nth-child(7) /* Vendor */
+  {display:none}
+
+  /* ── Destinations ── */
+  /* Hide address + contact */
+  #page-destinations table th:nth-child(3),#page-destinations table td:nth-child(3),
+  #page-destinations table th:nth-child(5),#page-destinations table td:nth-child(5)
+  {display:none}
+
+  /* ── Audit Log ── */
+  /* Hide IP Address + Record ID cols */
+  #audit-tbody td:nth-child(3),#page-audit thead th:nth-child(3),
+  #audit-tbody td:nth-child(5),#page-audit thead th:nth-child(5)
+  {display:none}
+
+  /* ── API Monitor ── */
+  #page-api .g2{grid-template-columns:1fr}
+  #page-api .code-block{font-size:9px;padding:8px 10px}
+  #page-api .fgrid{grid-template-columns:1fr 1fr}
+
+  /* ── Reports ── */
+  #page-reports .g3{grid-template-columns:1fr 1fr}
+  #page-reports .fgrid.cols3{grid-template-columns:1fr 1fr}
+  #page-reports .flex.gap8.flex-wrap{flex-wrap:wrap}
+  #page-reports .flex.gap8.flex-wrap .btn{flex:1 1 calc(50% - 4px);justify-content:center}
+
+  /* ── Settings ── */
+  #page-settings .g2{grid-template-columns:1fr}
+  #page-settings .fgrid{grid-template-columns:1fr}
+
+  /* ── Alert page ── */
+  #page-alerts .flex-sb{flex-wrap:wrap;gap:6px}
+  #page-alerts .flex.gap8{flex-wrap:wrap}
+
+  /* ── Card footer pagination ── */
+  .card-footer .flex.gap8{flex-wrap:nowrap}
+
+  /* ── Alerts list in alerts page ── */
+  #page-alerts .card-body > div{padding:10px 12px}
+  #page-alerts .card-body > div .flex-sb{align-items:flex-start}
+  #page-alerts .card-body > div .flex.gap8{flex-wrap:wrap;gap:6px;margin-top:8px}
+}
+
+/* ─── SMALL MOBILE ≤430px ─── */
+@media(max-width:430px){
+  .stats-4{grid-template-columns:repeat(2,1fr);gap:6px}
+  .stats-3{grid-template-columns:repeat(3,1fr);gap:5px}
+  .stat{padding:8px 10px}
+  .stat-val{font-size:18px}
+
+  /* Reports: 1 col */
+  #page-reports .g3{grid-template-columns:1fr}
+  #page-reports .fgrid.cols3{grid-template-columns:1fr}
+  #page-reports .flex.gap8.flex-wrap .btn{flex:1 1 100%}
+
+  /* Weighbridge stats: still 3 col but tighter */
+  #page-weighbridge [style*="grid-template-columns:repeat(3,1fr)"]{gap:6px!important}
+  .dp-val{font-size:16px}
+
+  /* Settings form: single column */
+  #page-settings .fgrid{grid-template-columns:1fr}
+
+  /* API: fgrid single */
+  #page-api .fgrid{grid-template-columns:1fr}
+
+  /* Modal footer: stack */
+  .modal-footer .btn{min-width:70px}
+
+  /* Bottom nav labels hidden, icon only */
+  .bn-item{font-size:0;letter-spacing:0}
+  .bn-item .bn-icon{font-size:20px}
+  .bn-dot{top:4px}
+}
+
+/* ─── TINY ≤360px ─── */
+@media(max-width:360px){
+  .content{padding:10px 10px 68px}
+  .card-header{padding:9px 10px}
+  .card-body{padding:10px}
+  .stats-4{gap:5px}
+  .stat{padding:7px 8px}
+  .stat-val{font-size:16px}
+  .stat-label{font-size:8px}
+  .stats-3{grid-template-columns:repeat(3,1fr)}
+  #page-reports .g3{grid-template-columns:1fr}
+}
