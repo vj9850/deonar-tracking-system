@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 << 'PYEOF'\nwith open\\(\"/Users/vaibhavjadhav/Documents/Deonar tracking system/public/index.html\", \"r\", encoding=\"utf-8\"\\) as f:\n    content = f.read\\(\\)\n\n# Find the positions\nstyle_start = content.find\\('<style>'\\)\nstyle_end = content.find\\('</style>'\\) + len\\('</style>'\\)\nscript_start = content.find\\('\\\\n<script>'\\)\nscript_end = content.rfind\\('</script>'\\) + len\\('</script>'\\)\nbody_end = content.rfind\\('</body>'\\)\n\nprint\\(f\"style_start: {style_start}\"\\)\nprint\\(f\"style_end: {style_end}\"\\)\nprint\\(f\"script_start: {script_start}\"\\)\nprint\\(f\"script_end: {script_end}\"\\)\nprint\\(f\"body_end: {body_end}\"\\)\nprint\\(f\"total length: {len\\(content\\)}\"\\)\nPYEOF)",
+      "Bash(python3 << 'PYEOF'\n# Verify no <style> or <script> tags remain in index.html\nwith open\\(\"/Users/vaibhavjadhav/Documents/Deonar tracking system/public/index.html\", \"r\"\\) as f:\n    content = f.read\\(\\)\n\n# Check for inline style/script blocks\nimport re\nstyle_blocks = re.findall\\(r'<style[^>]*>.*?</style>', content, re.DOTALL\\)\nscript_blocks = re.findall\\(r'<script[^>]*>.*?</script>', content, re.DOTALL\\)\n\nprint\\(\"Inline style blocks found:\", len\\(style_blocks\\)\\)\nfor s in style_blocks[:3]:\n    print\\(\"  ->\", s[:100]\\)\n\nprint\\(\"\\\\nScript tags found:\", len\\(script_blocks\\)\\)\nfor s in script_blocks:\n    print\\(\"  ->\", s[:120]\\)\nPYEOF)"
+    ]
+  }
+}
